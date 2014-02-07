@@ -182,5 +182,31 @@ form.quirks {
   text-align: center;
 }
 
+#doge-container {
+  width: 400px;
+}
+
+.doge-carousel {
+  overflow:hidden;
+  width:100%;
+}
+
+.doge-frames {
+  position: relative;
+  /*width: 1000%;*/
+  /*set width with javascript to 100 * the number of questions + %*/
+  overflow: hidden;
+  left: 0%;
+}
+
+.doge-item {
+  position: relative;
+  /*width: 10%;*/
+  /*set width with javascript to 100 / the number of questions + %*/
+  float: left;
+}
+
+#next-question{
+}
 
 
