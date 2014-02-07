@@ -46,6 +46,13 @@ nav .brand, nav .brand a {
   display: inline-block;
 }
 
+nav .logo img {
+  height: 35px;
+/*  margin: 15px 20px 0px 0px;*/
+  float: left;
+  padding-right: 10px;
+}
+
 nav ul {
   display: inline-block;
   width: 30%;

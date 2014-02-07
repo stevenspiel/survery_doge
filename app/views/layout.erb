@@ -12,8 +12,11 @@
 <body>
 
   <nav>
-
-    <div class="brand"><a href="/"><%= WEBSITE_NAME %></a></div>
+    <div class="brand">
+      <a href="/">
+      <div class="logo"><img src="/doge_face.png"></div>
+      <%= WEBSITE_NAME %></a>
+    </div>
 
     <ul>
       <% if current_user %>
@@ -30,7 +33,7 @@
   <%= yield %>
 
   <footer>
-    <p>Team Doge: Many Shawn, Such Danny, Wow Sam, Very Steve.</p>
+    <p>Team Doge: Many Shawn, Such Danny, Wow Sam, Very Steve, So Brian, Much Gary.</p>
   </footer>
 </body>
 </html>
