@@ -1,14 +1,16 @@
 <h2><%=@username%></h2>
 <h3 id='surveys'>Surveys</h3>
 <% @surveys.each do |survey| %>
-<div class='survey-name'>
-  <%= survey.name %>
-</div>
-<div class='survey-link'>
-  <button onclick="location.href='/survey/<%= survey.id %>';">Link</button>
-</div>
-<div class='survey-stats'>
-  <button onclick="location.href='/survey/stats/<%= survey.id %>';">Stats</button>
+<div class="survey-info">
+  <div class='survey-name'>
+    <%= survey.name %>
+  </div>
+  <div class='survey-link'>
+    <a href="/survey/<%= survey.id %>"><%= "#{request.base_url}/survey/#{survey.id}" %></a>
+  </div>
+  <div class='survey-stats'>
+    <button onclick="location.href='/survey/stats/<%= survey.id %>';">Stats</button>
+  </div>
 </div>
 <% end %>
 

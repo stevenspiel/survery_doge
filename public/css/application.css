@@ -73,3 +73,55 @@ form.quirks {
   margin-right: 20px;
   width: 200px;
 }
+
+.survey-name {
+  display: inline-block;
+}
+
+.survey-link {
+  display: inline-block;
+}
+
+.survey-stats {
+  display: inline-block;
+}
+
+.adjustable {
+  background-color: black;
+  display: inline-block;
+  width: 30px;
+}
+
+.question1 {
+  background-color: red;
+}
+
+.question2 {
+  background-color: blue;
+}
+
+.question3 {
+  background-color: orange;
+}
+
+.question4 {
+  background-color: green;
+}
+
+.question5 {
+  background-color: pink;
+}
+
+.question6 {
+  background-color: purple;
+}
+
+.question7 {
+  background-color: grey;
+}
+
+.question8 {
+  background-color: yellow;
+}
+
+
