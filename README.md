@@ -21,17 +21,17 @@ Answers have an order value, for tracking order of answers displayed per questio
   + username
   + password
 
-2. surveys
+2\. surveys
 
   + user_id
   + name
 
-3. questions
+3\. questions
 
   + survey_id
   + content
 
-4. answers
+4\. answers
 
   + question_id
   + content
