@@ -7,6 +7,44 @@ $(document).ready(function () {
     request.done(function () { window.location = "/"; });
   });
 
+  // survey taking actions
+
+  window.Answers = {
+    answers: []
+  }
+
+  $(".answer").click(function(){
+    // console.log("MUCH CLICKS");
+    $("#next-question").removeAttr("disabled");
+    if (parseInt($(".doge-frames").css("left").replace("px", "")) === ($(".doge-item").length * -400 + 400)) {
+      $("#next-question").html("Submit");
+      $("#next-question").click(function(){
+        $.ajax({
+          type: "POST",
+          url: "/survey",
+          data: window.Answers,
+          success: function(){
+            window.location.href = "/thanks"
+          },
+          dataType: "json"
+        });
+      });
+    }
+  });
+
+  $("#next-question").click(function(){
+    // console.log("MANY NEXT");
+    // window.Answers.
+    window.Answers.answers.push($("input[type=radio]:checked").last().attr("value"));
+    $(".doge-frames").css("left", "-=" + 400);
+    $("#next-question").attr("disabled", true);
+  });
+
+  $(".doge-frames").css("width", ($(".doge-item").length * 100) + "%");
+
+  $(".doge-item").css("width", (100 / $(".doge-item").length) + "%");
+
+  // survey creating actions
 
 
 });

@@ -26,3 +26,13 @@ end
     end
   end
 end
+
+50.times do
+  Survey.all.each do |survey|
+    survey.questions.each do |question|
+      answer_count = question.answers.count
+      upvote = rand(answer_count)
+      question.answers[upvote].increment!(:vote_count)
+    end
+  end
+end

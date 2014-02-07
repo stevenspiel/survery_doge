@@ -1,4 +1,4 @@
-<h2><%=@survey.name%></h2>
+<h2 id="survey-title"><%=@survey.name%></h2>
 <%if current_user.email == @survey.user.email%>
   <div id='share-url'>
     <h3>Your Survey: <%=@survey.name%></h3>
@@ -10,12 +10,14 @@
     <div class="doge-frames">
       <%@survey.questions.each do |question|%>
         <div class="doge-item">
-          <div class='question'><%=question.content%></div>
+          <div class='question' id="<%= question.id %>"><%=question.content%></div>
           <%question.answers.each do |answer|%>
-            <input type='radio' name='<%=question.id%>' class='answer'><%=answer.content%><br>
+            <input type='radio' tag="option-values" name='<%=question.id%>' value='<%=answer.id%>' class='answer'><%=answer.content%>
+            <br>
           <%end%>
         </div>
       <%end%>
     </div>
   </div>
+  <button id="next-question" disabled>Next</button>
 </div>
