@@ -40,7 +40,6 @@ post '/survey' do
   # we expect array in param
   params[:answers].each do |id|
     # increment vote count on each answer based on ques. number coming in
-    a = Answer.find(id).vote_count+=1
-    a.save
+    Answer.find(id.to_i).increment!(:vote_count)
   end
 end
