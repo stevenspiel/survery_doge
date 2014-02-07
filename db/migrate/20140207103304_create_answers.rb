@@ -3,7 +3,7 @@ class CreateAnswers < ActiveRecord::Migration
     create_table :answers do |t|
       t.string :content
       t.integer :order
-      t.integer :vote_count
+      t.integer :vote_count, default: 0
       t.belongs_to :question
 
       t.timestamps
