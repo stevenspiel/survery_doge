@@ -17,18 +17,22 @@ Answers have a vote count.
 Answers have an order value, for tracking order of answers displayed per question.
 
 1. users
+
 + username
 + password
 
 2. surveys
+
 + user_id
 + name
 
 3. questions
+
 + survey_id
 + content
 
 4. answers
+
 + question_id
 + content
 + vote_count
