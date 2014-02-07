@@ -1,0 +1,10 @@
+<h2><%=@survey.name%></h2>
+<%@survey.questions.each do |question|%>
+  <h3><%=question.content%></h3>
+  <%question.answers.each_with_index do |answer, index|%>
+    <div class='question-data'>
+      <%=index + 1%>. <%=answer.content%>
+      <div class="adjustable" id='<%="#{question.id }-#{answer.id}"%>'></div>
+    </div>
+  <%end%>
+<%end%>
