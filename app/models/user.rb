@@ -1,4 +1,3 @@
-require 'bcrypt'
 class User < ActiveRecord::Base
   attr_reader :entered_password
 
@@ -8,6 +7,7 @@ class User < ActiveRecord::Base
   validates :entered_password, :length => { :minimum => 6 }
   validates :email, :uniqueness => true, :format => /.+@.+\..+/ # imperfect, but okay
 
+  include BCrypt
 
   def password
     @password ||= Password.new(password_hash)

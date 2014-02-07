@@ -1,7 +1,6 @@
 get '/' do
   # render home page
   @users = User.all
-  @albums = Album.all
 
   erb :index
 end
