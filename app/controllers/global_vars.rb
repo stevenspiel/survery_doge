@@ -1,1 +1,1 @@
-WEBSITE_NAME = "Website Name"
+WEBSITE_NAME = "Survey Doge"
