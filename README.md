@@ -7,9 +7,13 @@ This is our Survey Monkey clone, totally doge-ified. Users can create multiple-c
 ### Schema
 
 Uses have many surverys.
+
 Surveys have many questions.
+
 Questions have many answers.
+
 Answers have a vote count.
+
 Answers have an order value, for tracking order of answers displayed per question.
 
 users
