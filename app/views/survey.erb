@@ -5,9 +5,17 @@
     <a href="/survey/<%=@survey.id%>"><%=request.base_url%>/survey/<%=@survey.id%></a>
   </div>
 <%end%>
-<%@survey.questions.each do |question|%>
-  <div class='question'><%=question.content%></div>
-  <%question.answers.each do |answer|%>
-    <input type='radio' name='<%=question.id%>' class='answer'><%=answer.content%><br>
-  <%end%>
-<%end%>
+<div id="doge-container">
+  <div class="doge-carousel">
+    <div class="doge-frames">
+      <%@survey.questions.each do |question|%>
+        <div class="doge-item">
+          <div class='question'><%=question.content%></div>
+          <%question.answers.each do |answer|%>
+            <input type='radio' name='<%=question.id%>' class='answer'><%=answer.content%><br>
+          <%end%>
+        </div>
+      <%end%>
+    </div>
+  </div>
+</div>
