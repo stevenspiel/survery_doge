@@ -6,7 +6,7 @@ This is our Survey Monkey clone, totally doge-ified. Users can create multiple-c
 
 ### Schema
 
-Uses have many surverys.
+Uses have many surveys.
 
 Surveys have many questions.
 
