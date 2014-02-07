@@ -7,6 +7,15 @@ $(document).ready(function () {
     request.done(function () { window.location = "/"; });
   });
 
+  $(".answer").click(function(){
+    console.log("MUCH CLICKS");
+    $("#next-question").removeAttr("disabled");
+  });
 
+  $("#next-question").click(function(){
+    console.log("MANY NEXT");
+    $(".doge-frames").css("left", "-=" + 400);
+    $("#next-question").attr("disabled", true);
+  });
 
 });
