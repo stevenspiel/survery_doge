@@ -3,7 +3,7 @@ get '/survey/:id' do
   erb :survey
 end
 
-get '/survey/new' do
+get '/new/survey' do
   erb :new_survey
 end
 
