@@ -8,6 +8,6 @@
 <%@survey.questions.each do |question|%>
   <div class='question'><%=question.content%></div>
   <%question.answers.each do |answer|%>
-    <input type='radio' name='<%=question.id%>' class='answer'><%=answer.content%>
+    <input type='radio' name='<%=question.id%>' class='answer'><%=answer.content%><br>
   <%end%>
 <%end%>

@@ -7,8 +7,8 @@ user = User.create!(name:"Mr. Doge", email: "email@email.com", password: 'passwo
   survey = user.surveys.create!(name: Faker::Lorem.word)
   10.times do
     question = survey.questions.create!(content: Faker::Lorem.sentence)
-    (rand(6) + 2).times do
-      question.answers.create!(content: Faker::Lorem.sentence)
+    (rand(6) + 2).times do |n|
+      question.answers.create!(content: Faker::Lorem.sentence, order: n + 1)
     end
   end
 end
@@ -20,8 +20,8 @@ end
     survey = user.surveys.create(name: Faker::Lorem.word)
     (rand(10)).times do
       question = survey.questions.create(content: Faker::Lorem.sentence)
-      (rand(6) + 2).times do
-        question.answers.create(content: Faker::Lorem.sentence)
+      (rand(6) + 2).times do |n|
+        question.answers.create(content: Faker::Lorem.sentence, order: n + 1)
       end
     end
   end
