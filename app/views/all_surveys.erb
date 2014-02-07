@@ -1,0 +1,14 @@
+<h2><%=session[:username]%></h2>
+<h3 id='surveys'>Surveys</h3>
+<% @surveys.each do |survey| %>
+<div class='survey-name'>
+  <%= survey.name %>
+</div>
+<div class='survey-link'>
+  <button onclick="location.href='/surveys/<%= survey.id %>';">Link</button>
+</div>
+<div class='survey-stats'>
+  <button onclick="location.href='/surveys/stats/<%= survey.id %>';">Stats</button>
+</div>
+<% end %>
+

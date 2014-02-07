@@ -1,0 +1,13 @@
+<h2><%=@survey.name%></h2>
+<%if session[:email] == @survey.user.email%>
+  <div id='share-url'>
+    <h3>Your Survey: <%=@survey.title%></h3>
+    <a href="/survey/<%=@survey.id%>"><%=WEBSITE_URL%>/survey/<%=@survey.id%></a>
+  </div>
+<%end%>
+<%@survey.questions.each do |question|%>
+  <div class='question'><%=question.content%></div>
+  <%question.answers.each do |answer|%>
+    <input type='radio' name='<%=question.id%>' class='answer'><%=answer.content%>
+  <%end%>
+<%end%>
