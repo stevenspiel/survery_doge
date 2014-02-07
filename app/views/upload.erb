@@ -1,0 +1,12 @@
+<h1>File uploader!</h1>
+<form method="post" action="/upload" enctype='multipart/form-data'>
+  <input type='file' name='filename' placeholder="filename">
+  <select>
+    <option value="" selected="selected" disabled></option>
+    <% @user_albums.each do |album| %>
+      <option value="<%= album.title %>"><%= album.title %></option>
+    <% end %>
+  </select>
+  <br>
+  <input type='submit' value='Upload!'>
+</form>
