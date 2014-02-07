@@ -1,4 +1,4 @@
-<h2><%=@survey.name%></h2>
+<h2 id="survey-title"><%=@survey.name%></h2>
 <%if current_user.email == @survey.user.email%>
   <div id='share-url'>
     <h3>Your Survey: <%=@survey.name%></h3>
