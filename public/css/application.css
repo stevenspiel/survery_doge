@@ -1,4 +1,6 @@
 .container {
+  position: relative;
+  min-height:100%;
   margin: 20px auto;
   width: 800px;
   padding: 0px 20px 20px 20px;
@@ -21,13 +23,16 @@ h2 {
 }
 
 body {
+  height:100%;
   font-family: 'Roboto', sans-serif;
+}
+
+.home-container {
   background-image:url('/doge_bg.png');
   background-size: 100%;
   background-repeat: no-repeat;
-  /*background-color: #FF9933;*/
+  min-height: 400px;
 }
-
 
 nav {
   width: 100%;
@@ -48,7 +53,6 @@ nav .brand, nav .brand a {
 
 nav .logo img {
   height: 35px;
-/*  margin: 15px 20px 0px 0px;*/
   float: left;
   padding-right: 10px;
 }
@@ -75,8 +79,7 @@ nav li a:hover {
 
 footer {
   width: 100%;
-  position: absolute;
-  bottom: 0;
+  padding-top: 10px;
   background-color: white;
   font-size: 10pt;
   color: black;
