@@ -2,18 +2,39 @@
   margin: 20px auto;
   width: 800px;
   padding: 0px 20px 20px 20px;
-  border: 1px dotted black;
+  /*border: 1px dotted black;*/
 }
 
-.container h1 {
-  font-size: 17pt;
-
+h1 {
+  font-size: 32pt;
+  font-family: 'Roboto', sans-serif;
+  font-weight: 400;
+  margin: 0;
 }
+
+h2 {
+  font-size: 28pt;
+  font-family: 'Roboto', sans-serif;
+  font-weight: 100;
+  margin: 0;
+  margin-bottom: 20px;
+}
+
+body {
+  font-family: 'Roboto', sans-serif;
+  background-image:url('/doge_bg.png');
+  background-size: 100%;
+  background-repeat: no-repeat;
+  /*background-color: #FF9933;*/
+}
+
 
 nav {
   width: 100%;
-  height: 40px;
+  height: 50px;
   font-weight: bold;
+  box-shadow: 0 0 10px gray;
+  background-color: white;
 }
 
 nav .brand, nav .brand a {
@@ -23,6 +44,13 @@ nav .brand, nav .brand a {
   color: #444;
   width: 60%;
   display: inline-block;
+}
+
+nav .logo img {
+  height: 35px;
+/*  margin: 15px 20px 0px 0px;*/
+  float: left;
+  padding-right: 10px;
 }
 
 nav ul {
@@ -43,6 +71,17 @@ nav li a {
 
 nav li a:hover {
   text-decoration: underline;
+}
+
+footer {
+  width: 100%;
+  position: absolute;
+  bottom: 0;
+  background-color: white;
+  font-size: 10pt;
+  color: black;
+  font-weight: 100;
+  text-align: center;
 }
 
 form label {
@@ -124,6 +163,25 @@ form.quirks {
   background-color: yellow;
 }
 
+#create-survey {
+  color: white;
+  display: block;
+  background-color: #FA8805;
+  margin: 0 auto;
+  padding: 20px;
+  border: 1px solid darkgray;
+  width: 300px;
+  text-shadow: 0 0 3px black;
+/*  height: 30px;*/
+}
+
+#button-text {
+
+}
+.center {
+  text-align: center;
+}
+
 #doge-container {
   width: 400px;
 }
@@ -150,4 +208,5 @@ form.quirks {
 
 #next-question{
 }
+
 
