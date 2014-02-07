@@ -9,19 +9,20 @@ $(document).ready(function () {
 
   // survey taking actions
 
-  var answers = {};
+  window.Answers = {
+    answers: []
+  }
 
   $(".answer").click(function(){
     // console.log("MUCH CLICKS");
     $("#next-question").removeAttr("disabled");
     if (parseInt($(".doge-frames").css("left").replace("px", "")) === ($(".doge-item").length * -400 + 400)) {
       $("#next-question").html("Submit");
-      answers.title = $("#survey-title").html();
       $("#next-question").click(function(){
         $.ajax({
           type: "POST",
           url: "/survey",
-          data: answers,
+          data: window.Answers,
           success: function(){
             window.location.href = "/thanks"
           },
@@ -33,6 +34,8 @@ $(document).ready(function () {
 
   $("#next-question").click(function(){
     // console.log("MANY NEXT");
+    // window.Answers.
+    window.Answers.answers.push($("input[type=radio]:checked").last().attr("value"));
     $(".doge-frames").css("left", "-=" + 400);
     $("#next-question").attr("disabled", true);
   });

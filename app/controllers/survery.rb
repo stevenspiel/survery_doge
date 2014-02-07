@@ -35,6 +35,8 @@ get '/survey/stats/:id' do
 end
 
 post '/survey' do
+  puts params
+  puts params[:answers]
   # we expect array in param
   params[:answers].each do |id|
     # increment vote count on each answer based on ques. number coming in

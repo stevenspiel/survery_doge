@@ -10,9 +10,10 @@
     <div class="doge-frames">
       <%@survey.questions.each do |question|%>
         <div class="doge-item">
-          <div class='question'><%=question.content%></div>
+          <div class='question' id="<%= question.id %>"><%=question.content%></div>
           <%question.answers.each do |answer|%>
-            <input type='radio' name='<%=question.id%>' class='answer'><%=answer.content%><br>
+            <input type='radio' tag="option-values" name='<%=question.id%>' value='<%=answer.id%>' class='answer'><%=answer.content%>
+            <br>
           <%end%>
         </div>
       <%end%>
