@@ -1,8 +1,8 @@
 <h2><%=@survey.name%></h2>
-<%if session[:email] == @survey.user.email%>
+<%if current_user.email == @survey.user.email%>
   <div id='share-url'>
-    <h3>Your Survey: <%=@survey.title%></h3>
-    <a href="/survey/<%=@survey.id%>"><%=WEBSITE_URL%>/survey/<%=@survey.id%></a>
+    <h3>Your Survey: <%=@survey.name%></h3>
+    <a href="/survey/<%=@survey.id%>"><%=request.base_url%>/survey/<%=@survey.id%></a>
   </div>
 <%end%>
 <%@survey.questions.each do |question|%>
