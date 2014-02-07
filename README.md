@@ -16,7 +16,7 @@ Answers have a vote count.
 
 Answers have an order value, for tracking order of answers displayed per question.
 
-1. users
+1\. users
 
   + username
   + password
