@@ -46,3 +46,7 @@ post '/survey' do
     Answer.find(id.to_i).increment!(:vote_count)
   end
 end
+
+get '/thanks' do
+  erb :thanks
+end
