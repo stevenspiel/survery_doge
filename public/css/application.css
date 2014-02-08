@@ -36,7 +36,6 @@ body {
 }
 
 .content {
-  /*position: relative;*/
   display: block;
   width: 70%;
   height: 100%;
@@ -48,16 +47,15 @@ body {
 }
 
 .home-container {
-  /*display: block;*/
-  position: absolute;
-  background-image:url('/doge_bg.png');
-  background-size: 100%;
+  background-image: url("/doge_bg.png");
   background-repeat: no-repeat;
-  text-align: center;
-  min-height: 600px;
-  top: 50px;
+  background-size: 100% auto;
+  height: 90%;
   left: 0;
+  position: absolute;
   right: 0;
+  text-align: center;
+  top: 50px;
   z-index: 75;
 }
 
@@ -72,12 +70,11 @@ body {
 }
 
 .footer {
-  position: relative;
-  padding: 20px;
-  top: 50px;
-  font-weight: 100;
   font-size: 12px;
+  font-weight: 100;
+  position: relative;
   text-align: center;
+  top: 50px;
   z-index: 100;
 }
 
