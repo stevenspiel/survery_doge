@@ -1,3 +1,5 @@
+
+
 $(document).ready(function () {
 
   // send an HTTP DELETE request for the sign-out link
@@ -15,6 +17,7 @@ $(document).ready(function () {
 
   $(".answer").click(function(){
     // console.log("MUCH CLICKS");
+
     $("#next-question").removeAttr("disabled");
     if (parseInt($(".doge-frames").css("left").replace("px", "")) === ($(".doge-item").length * -400 + 400)) {
       $("#next-question").html("Submit");
@@ -44,7 +47,34 @@ $(document).ready(function () {
 
   $(".doge-item").css("width", (100 / $(".doge-item").length) + "%");
 
-  // survey creating actions
-
-
 });
+
+
+
+// Survey creation functions
+
+$(document).on('click','#new-option',function(){
+  var iO = $('#new-question-container p').length + 1;
+  $('<p><input type="text" class="answer_new" name="answer'+iO+'" value="" placeholder="Option '+iO+'" /><a href="#" class="remove" id="remove'+iO+'">Remove</a> </p>').appendTo($('#new-question-container'));
+    iO++;
+    $(".remove").click(function(e){
+      $(e.currentTarget).parent().remove();
+    });
+    return false;
+});
+
+$(document).on('click','#next',function(){
+  window.newSurveyHTML = $("#question-and-buttons").html();
+  var iQ = parseInt($("input[tag='question']").attr('name').replace('question',''));
+  $("#question-and-buttons").html(window.newSurveyHTML);
+  $("input[tag='question']").attr('placeholder',function(){
+    iQ ++
+    console.log(iQ);
+    return 'Question ' + iQ;
+  });
+  $("input[tag='question']").attr('name',('question'+iQ));
+});
+
+
+
+
