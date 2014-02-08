@@ -13,7 +13,7 @@ user = User.create!(name:"Mr. Doge", email: "email@email.com", password: 'passwo
   end
 end
 
-3.times do
+4.times do
   user = User.create(name: Faker::Name.name, email: Faker::Internet.email, password: Faker::Internet.password)
 
   (rand(5)).times do

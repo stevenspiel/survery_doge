@@ -11,6 +11,7 @@ h1 {
   font-family: 'Roboto', sans-serif;
   font-weight: 400;
   margin: 0;
+  text-shadow: 1px 1px 5px white;
 }
 
 h2 {
@@ -19,6 +20,14 @@ h2 {
   font-weight: 100;
   margin: 0;
   margin-bottom: 20px;
+  text-shadow: 1px 1px 5px white;
+}
+
+h3 {
+  font-size: 24px;
+  font-weight: 100;
+  color: dimgray;
+  margin-bottom: 10px;
 }
 
 body {
@@ -26,32 +35,30 @@ body {
   font-family: 'Roboto', sans-serif;
 }
 
-.nav {
-  position: absolute;
-  width: 100%;
-  height: 50px;
-  top: 0;
-  font-weight: bold;
-  box-shadow: 0 0 10px gray;
-  z-index: 100;
-}
-
 .content {
-  position: relative;
-  width: 100%;
+  /*position: relative;*/
+  display: block;
+  width: 70%;
   height: 100%;
+  min-height: 600px;
+  min-width: 800px;
+  margin: 80px auto 0 auto;
   top: 50px;
   z-index: 50;
 }
 
 .home-container {
-  position: relative;
+  /*display: block;*/
+  position: absolute;
   background-image:url('/doge_bg.png');
-  opacity: 0.7;
   background-size: 100%;
   background-repeat: no-repeat;
   text-align: center;
   min-height: 600px;
+  top: 50px;
+  left: 0;
+  right: 0;
+  z-index: 75;
 }
 
 .v-center-me {
@@ -74,6 +81,17 @@ body {
   z-index: 100;
 }
 
+.nav {
+  position: absolute;
+  min-width: 700px;
+  width: 100%;
+  height: 50px;
+  top: 0;
+  font-weight: bold;
+  box-shadow: 0 0 10px gray;
+  z-index: 100;
+}
+
 .nav .brand, .nav .brand a {
   margin-left: 25px;
   font-size: 18pt;
@@ -87,6 +105,10 @@ body {
   height: 35px;
   float: left;
   padding-right: 10px;
+}
+
+.brand:hover {
+  opacity: 0.7;
 }
 
 .nav ul {
@@ -107,7 +129,7 @@ body {
 }
 
 .nav li a:hover {
-  text-decoration: underline;
+  opacity: 0.7;
 }
 
 form label {
@@ -189,6 +211,49 @@ form.quirks {
   background-color: yellow;
 }
 
+/*Formatting the buttons...*/
+
+input[type="submit"] {
+  background-color: #FA8805;
+  color: white;
+  text-shadow: 0 0 3px #663300;
+  border-radius: 5px;
+  border: 0px solid darkgray;
+  opacity: 1;
+}
+
+button {
+  background-color: #FA8805;
+  color: white;
+  text-shadow: 0 0 3px #663300;
+  border-radius: 5px;
+  border: 0px solid darkgray;
+  opacity: 1;
+}
+
+/*button hover states*/
+
+input[type="submit"]:hover {
+  opacity: 0.7;
+}
+
+button:hover {
+  opacity: 0.7;
+}
+
+/*radio button styling*/
+
+input[type="radio"] {
+  margin: 7px;
+}
+
+.question {
+  font-size: 20px;
+  font-weight: 400;
+  margin-bottom: 10px;
+}
+
+
 #create-survey {
   color: white;
   display: block;
@@ -198,7 +263,11 @@ form.quirks {
   border: 1px solid darkgray;
   width: 300px;
   text-shadow: 0 0 3px black;
-/*  height: 30px;*/
+  opacity: 0.8;
+}
+
+#create-survey:hover {
+  opacity: 1;
 }
 
 #button-text {
@@ -230,6 +299,12 @@ form.quirks {
 }
 
 #next-question{
+}
+
+.survey-name {
+  padding: 5px 0 5px 0;
+  color: #333333;
+  font-weight: 400;
 }
 
 
