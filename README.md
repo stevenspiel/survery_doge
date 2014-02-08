@@ -13,12 +13,10 @@ First, clone the repo to your local machine. Copy the HTTP Clone URL on the righ
 ```
 git clone <paste url you copied> survey_doge
 ```
-
 Run bundle to get all the gems setup:
 ```
 bundle
 ```
-
 Setup the database it uses with the following commands:
 ```
 rake db:create
@@ -28,13 +26,11 @@ Optionally (and recommended), you can seed the database with some fake data:
 ```
 rake db:seed
 ```
-
 Then run shotgun to start the http server:
 ```
 shotgun
 ```
-
-4. That should get the site running localy on your machine.
+That should get the site running locally on your machine.
 Then in your browser, visit the local host address it shows you. It's usually "localhost:9393".
 
 
