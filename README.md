@@ -6,20 +6,23 @@ This is our Survey Monkey clone, totally doge-ified. Users can create multiple-c
 
 ### How to Run
 
-Clone the repo to your local machine.
+Requirements: working postgres installed.
 
-Run:
+
+1. Clone the repo to your local machine.
+
+2. Run:
 ```
 bundle
 ```
 
-Then run:
+3. Then run:
 ```
 shotgun
 ```
 
-That should get the site running localy on your machine.
-Then visit the local host address it shows you, usually "localhost:9393".
+4. That should get the site running localy on your machine.
+Then in your browser, visit the local host address it shows you. It's usually "localhost:9393".
 
 
 ### Schema
