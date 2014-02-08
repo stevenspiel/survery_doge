@@ -64,6 +64,12 @@ $(document).on('click','#new-option',function(){
 });
 
 $(document).on('click','#next',function(){
+  console.log("next id clicked");
+
+  for (var i = $(".new-answer").length - 1; i >= 0; i--) {
+    console.log($(".new-answer")[i])
+  };
+
   window.newSurveyHTML = $("#question-and-buttons").html();
   var iQ = parseInt($("input[tag='question']").attr('name').replace('question',''));
   $("#question-and-buttons").html(window.newSurveyHTML);
