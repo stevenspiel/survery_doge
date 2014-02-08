@@ -11,30 +11,31 @@
   <title></title>
 </head>
 <body>
+  <div id="wrapper">
+    <div class="nav">
+      <div class="brand">
+        <a href="/">
+        <div class="logo"><img src="/doge_face.png"></div>
+        <%= WEBSITE_NAME %></a>
+      </div>
 
-  <div class="nav">
-    <div class="brand">
-      <a href="/">
-      <div class="logo"><img src="/doge_face.png"></div>
-      <%= WEBSITE_NAME %></a>
+      <ul>
+        <% if current_user %>
+          <li><a href="/user/<%=current_user.id%>" id="user">My Surveys</a></li>
+          <li><a id="sign-out" href="/sessions/<%= current_user.id %>">Sign Out</a></li>
+        <% else %>
+          <li><a href="/sessions/new">Sign In</a></li>
+          <li><a href="/users/new">Sign Up</a></li>
+        <% end %>
+      </ul>
+
     </div>
-
-    <ul>
-      <% if current_user %>
-        <li><a href="/user/<%=current_user.id%>" id="user">My Surveys</a></li>
-        <li><a id="sign-out" href="/sessions/<%= current_user.id %>">Sign Out</a></li>
-      <% else %>
-        <li><a href="/sessions/new">Sign In</a></li>
-        <li><a href="/users/new">Sign Up</a></li>
-      <% end %>
-    </ul>
-
-  </div>
-  <div class="content">
-  <%= yield %>
-  </div>
-  <div class="footer">
-    <p>Team Doge: Many Shawn, Such Danny, Wow Sam, Very Steve, So Brian, Much Gary.</p>
+    <div class="content">
+    <%= yield %>
+    </div>
+    <div class="footer">
+      <p>Team Doge: Many Shawn, Such Danny, Wow Sam, Very Steve, So Brian, Much Gary.</p>
+    </div>
   </div>
 </body>
 </html>
