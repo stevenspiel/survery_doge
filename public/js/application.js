@@ -55,7 +55,7 @@ $(document).ready(function () {
 
 $(document).on('click','#new-option',function(){
   var iO = $('#new-question-container p').length + 1;
-  $('<p><input type="text" class="answer_new" name="answer'+iO+'" value="" placeholder="Option '+iO+'" /><a href="#" class="remove" id="remove'+iO+'">Remove</a> </p>').appendTo($('#new-question-container'));
+  $('<p><input type="text" class="answer_new" name="answer'+iO+'" value="" placeholder="Option '+iO+'" /><a href="#" class="remove" id="remove'+iO+'"><img class="minus" alt="remove" src="/remove.png"></a> </p>').appendTo($('#new-question-container'));
     iO++;
     $(".remove").click(function(e){
       $(e.currentTarget).parent().remove();
