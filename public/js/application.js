@@ -49,16 +49,39 @@ $(document).ready(function () {
 
 
 
-// Survey creation functions
+  // Survey creation functions
 
-    var addDiv = $('#new-question-container');
-    var i = $('#new-question-container p').length + 1;
-    $('#new-answer').click(function() {
-      $('<p><input type="text" class="answer_new" size="40" name="answer' + i +'" value="" placeholder="I am New" /><a href="#" class="remove" id="remove' + i + '">Remove</a> </p>').appendTo(addDiv);
-      i++;
-      $(".remove").click(function(e){
-        $(e.currentTarget).parent().remove();
-      });
-      return false;
+  var addDiv = $('#new-question-container');
+  var i = $('#new-question-container p').length + 1;
+  $('#new-answer').click(function() {
+    $('<p><input type="text" class="answer_new" size="40" name="answer' + i +'" value="" placeholder="I am New" /><a href="#" class="remove" id="remove' + i + '">Remove</a> </p>').appendTo(addDiv);
+    i++;
+    $(".remove").click(function(e){
+      $(e.currentTarget).parent().remove();
     });
+    return false;
+  });
+
+  // Form submission to server as json
+
+  var completeSurvey = {
+    title: "A Doges Life"
+  };
+
+  $("#submit").click(function(e) {
+    e.preventDefault();
+    console.log(completeSurvey);
+ $.ajax({url: "/survey/new", type: 'post', data: JSON.stringify(completeSurvey), contentType: 'application/json', dataType: 'json' });
+  })
+
+
+
+
+
+
+
+
+
+
+
 });
