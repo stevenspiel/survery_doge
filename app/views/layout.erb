@@ -4,6 +4,7 @@
   <link rel="stylesheet" href="/css/normalize.css">
   <link rel="stylesheet" href="/css/application.css">
   <link href='http://fonts.googleapis.com/css?family=Roboto:400,100,700,900' rel='stylesheet' type='text/css'>
+  <link rel="icon" href="/doge_favicon.png" sizes="128x128">
   <script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
   <script src="/js/application.js"></script>
 
@@ -11,7 +12,7 @@
 </head>
 <body>
 
-  <nav>
+  <div class="nav">
     <div class="brand">
       <a href="/">
       <div class="logo"><img src="/doge_face.png"></div>
@@ -28,13 +29,12 @@
       <% end %>
     </ul>
 
-  </nav>
-
+  </div>
+  <div class="content">
   <%= yield %>
-
-  <footer>
-    Team Doge: Many Shawn, Such Danny, Wow Sam, Very Steve, So Brian, Much Gary.
-  </footer>
-
+  </div>
+  <div class="footer">
+    <p>Team Doge: Many Shawn, Such Danny, Wow Sam, Very Steve, So Brian, Much Gary.</p>
+  </div>
 </body>
 </html>
