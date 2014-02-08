@@ -1,14 +1,22 @@
 <div id="question-and-buttons">
 
   <div id="new-question-container">
-    <input type='text' id='title' placeholder='Survey Title' name='title'><br>
-    <input type='text' class='new-question' placeholder='Question' tag='question' name='question1'><br>
-    <p><input type='text' class='new-answer' placeholder='Option 1' name='answer1'></p>
-    <p><input type='text' class='new-answer' placeholder='Option 2' name='answer2'></p>
-    <input type="hidden" class="remove">
+    <div class="doge-carousel">
+      <input type='text' id='title' placeholder='Survey Title' name='title'><br>
+      <div class="doge-frames" id="new-survey">
+        <div class='doge-item'>
+          <input type='text' class='new-question' placeholder='Question1' tag='question' name='question1'><br>
+          <div id='options-for-question-1'>
+            <p><input type='text' class='new-answer' placeholder='Option' name='option1'></p>
+            <p><input type='text' class='new-answer' placeholder='Option' name='option2'></p>
+          </div>
+          <a href='#' id='new-option-for-question-1' class='next-option'><img src='/add.png' alt='add'></a><br>
+        </div>
+      </div>
+    </div>
   </div>
 
-  <a href="#" id='new-option' class="next-option"><img src="/add.png" alt="add"></a><br>
-  <button id='next' class="next-question">New Question >></button>
+  <button id='previous' class="next-question" disabled><< Previous Question</button>
+  <button id='next' class="next-question">Next Question >></button>
   <button id='submit'>Submit</button>
 </div>
