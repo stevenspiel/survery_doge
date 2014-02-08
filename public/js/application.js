@@ -1,3 +1,5 @@
+
+
 $(document).ready(function () {
 
   // send an HTTP DELETE request for the sign-out link
@@ -15,6 +17,7 @@ $(document).ready(function () {
 
   $(".answer").click(function(){
     // console.log("MUCH CLICKS");
+
     $("#next-question").removeAttr("disabled");
     if (parseInt($(".doge-frames").css("left").replace("px", "")) === ($(".doge-item").length * -400 + 400)) {
       $("#next-question").html("Submit");
@@ -44,7 +47,18 @@ $(document).ready(function () {
 
   $(".doge-item").css("width", (100 / $(".doge-item").length) + "%");
 
-  // survey creating actions
 
 
+// Survey creation functions
+
+    var addDiv = $('#new-question-container');
+    var i = $('#new-question-container p').length + 1;
+    $('#new-answer').click(function() {
+      $('<p><input type="text" class="answer_new" size="40" name="answer' + i +'" value="" placeholder="I am New" /><a href="#" class="remove" id="remove' + i + '">Remove</a> </p>').appendTo(addDiv);
+      i++;
+      $(".remove").click(function(e){
+        $(e.currentTarget).parent().remove();
+      });
+      return false;
+    });
 });
