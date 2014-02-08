@@ -311,4 +311,21 @@ input[type="radio"] {
   font-weight: 400;
 }
 
+.minus {
+  height: 1em;
+  line-height: 0.7em;
+  margin: 0;
+  padding: 0 0 0.3em 0.5em;
+  vertical-align: middle;
+  width: 1em;
+}
+
+.next-option {
+/*  background-color: #000080;
+*/}
+
+.next-question {
+  background-color: #008080;
+}
+
 
