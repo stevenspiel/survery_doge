@@ -4,6 +4,24 @@ Survey Doge
 This is our Survey Monkey clone, totally doge-ified. Users can create multiple-choice surveys for others to vote in them.
 
 
+### How to Run
+
+Clone the repo to your local machine.
+
+Run:
+```
+bundle
+```
+
+Then run:
+```
+shotgun
+```
+
+That should get the site running localy on your machine.
+Then visit the local host address it shows you, usually "localhost:9393".
+
+
 ### Schema
 
 Uses have many surveys.
