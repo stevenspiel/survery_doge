@@ -1,10 +1,13 @@
 <h2>Current results for "<%=@survey.name%>"</h2>
 <%@survey.questions.each do |question|%>
   <h3><%=question.content%></h3>
-  <%question.answers.each do |answer|%>
+  <%answers = question.answers.sort!{|x,y| x.order <=> y.order}%>
+  <% total_votes = answers.map{|answer| answer.vote_count}.inject(:+) %>
+  <%answers.each do |answer|%>
     <div class='question-data'>
-      <%=answer.order%>. <%=answer.content%>
-      <div class="adjustable question<%= answer.order %>" id='<%="#{question.id }-#{answer.order}"%>'><%= answer.vote_count %></div>
+      <%=answer.order%>. <%=answer.content%><br>
+      <% percent = ((100 * answer.vote_count) / 51.0).round(1) %>
+      <div class="adjustable question<%= answer.order %>" id='<%="#{question.id }-#{answer.order}"%>' style="width:<%= (percent / 100) * BAR_GRAPH_WIDTH %>px"><%= percent %>%</div>
     </div>
   <%end%>
 <%end%>
