@@ -50,7 +50,7 @@ $(document).ready(function () {
 
 
   // Survey creation functions
-  var completeSurvey = {title: "A Doges Life"};
+  var completeSurvey = {title: "A Doges Life", "Question 1": ["answer 1", "answer 2", "answer 3"]};
 
   var addDiv = $('#new-question-container');
   var i = $('#new-question-container p').length + 1;

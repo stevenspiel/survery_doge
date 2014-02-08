@@ -1,3 +1,5 @@
+require 'pry'
+
 get '/survey/:id' do
   @survey = Survey.find(params[:id])
   erb :survey
@@ -10,26 +12,25 @@ end
 post '/survey/new' do
   # get stuff from front end
   # as JSON
-  puts params
-  data = request.body.read
-  puts data
-  # survey = JSON.parse(params[:survey])
-  # new_survey = Survey.new
-  # survey.each do |key, value|
-  #   if key == "title"
-  #     new_survey.name = value
-  #   else
-  #     # write questions
-  #     q = Question.create(content: key)
-  #     new_survey.questions << q
-  #     # write poss. answers
-  #     value.each do |answer|
-  #       q.answers << Answer.create(content: answer)
-  #     end
-  #   end
-  # end
-  # # store into database
-  # new_survey.save
+  survey = JSON.parse(request.body.read)
+  binding.pry
+  new_survey = Survey.new
+  new_survey.user_id = session[:user_id]
+  survey.each do |key, value|
+    if key == "title"
+      new_survey.name = value
+    else
+      # write questions
+      q = Question.create(content: key)
+      new_survey.questions << q
+      # write poss. answers
+      value.each do |answer|
+        q.answers << Answer.create(content: answer)
+      end
+    end
+  end
+  # store into database
+  new_survey.save!
 end
 
 get '/survey/stats/:id' do
