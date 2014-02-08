@@ -36,7 +36,7 @@ $(document).ready(function () {
   });
 
   $("#next-question").click(function(){
-    // console.log("MANY NEXT");
+    console.log("MANY NEXT");
     // window.Answers.
     window.Answers.answers.push($("input[type=radio]:checked").last().attr("value"));
     $(".doge-frames").css("left", "-=" + 400);
@@ -47,15 +47,21 @@ $(document).ready(function () {
 
   $(".doge-item").css("width", (100 / $(".doge-item").length) + "%");
 
+
+
 });
 
 
 
 // Survey creation functions
 
+var completeSurvey = {};
+
+var questionsArray = [];
+
 $(document).on('click','#new-option',function(){
   var iO = $('#new-question-container p').length + 1;
-  $('<p><input type="text" class="answer_new" name="answer'+iO+'" value="" placeholder="Option '+iO+'" /><a href="#" class="remove" id="remove'+iO+'"><img class="minus" alt="remove" src="/remove.png"></a> </p>').appendTo($('#new-question-container'));
+  $('<p><input type="text" class="new-answer" name="answer'+iO+'" value="" placeholder="Option '+iO+'" /><a href="#" class="remove" id="remove'+iO+'"><img class="minus" alt="remove" src="/remove.png"></a> </p>').appendTo($('#new-question-container'));
     iO++;
     $(".remove").click(function(e){
       $(e.currentTarget).parent().remove();
@@ -64,6 +70,14 @@ $(document).on('click','#new-option',function(){
 });
 
 $(document).on('click','#next',function(){
+  var q_name = $(".new-question ").val();
+  console.log("Length of new answers is" + $(".new-answer").length);
+  for (var i = 0; i < $(".new-answer").length; i++) {;
+    questionsArray[i] = $($(".new-answer")[i]).val();
+  };
+  console.log(questionsArray);
+  completeSurvey[q_name] = questionsArray;
+  console.log(completeSurvey);
   window.newSurveyHTML = $("#question-and-buttons").html();
   var iQ = parseInt($("input[tag='question']").attr('name').replace('question',''));
   $("#question-and-buttons").html(window.newSurveyHTML);
@@ -75,6 +89,11 @@ $(document).on('click','#next',function(){
   $("input[tag='question']").attr('name',('question'+iQ));
 });
 
-
+$(document).on("click", "#submit", function(e) {
+    e.preventDefault();
+    completeSurvey.title = $("#title").val();
+    console.log(completeSurvey);
+ $.ajax({url: "/survey/new", type: 'post', data: JSON.stringify(completeSurvey), contentType: 'application/json', dataType: 'json' });
+  });
 
 
