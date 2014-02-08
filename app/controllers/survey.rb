@@ -10,8 +10,10 @@ end
 post '/survey/new' do
   # get stuff from front end
   # as JSON
-  survey = JSON.parse(params[:survey])
-  puts survey
+  puts params
+  data = request.body.read
+  puts data
+  # survey = JSON.parse(params[:survey])
   # new_survey = Survey.new
   # survey.each do |key, value|
   #   if key == "title"

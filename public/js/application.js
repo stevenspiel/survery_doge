@@ -50,7 +50,10 @@ $(document).ready(function () {
 
 
   // Survey creation functions
+<<<<<<< HEAD
   var completeSurvey = {title: "doge magic"};
+=======
+>>>>>>> a3c578f0d32431d076d3cf33b95d1c389dcbdf54
 
   var addDiv = $('#new-question-container');
   var i = $('#new-question-container p').length + 1;
@@ -63,11 +66,19 @@ $(document).ready(function () {
     return false;
   });
 
-  // Submit full survey as json to server
+
+
+  var completeSurvey = {
+    title: "A Doges Life"
+  };
+
   $("#submit").click(function(e) {
     e.preventDefault();
-    $.post("/survey/new", completeSurvey, "json");
-  });
+    console.log(completeSurvey);
+ $.ajax({url: "/survey/new", type: 'post', data: JSON.stringify(completeSurvey), contentType: 'application/json', dataType: 'json' });
+  })
+
+
 
 
 });

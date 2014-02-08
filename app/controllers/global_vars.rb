@@ -1,1 +1,2 @@
 WEBSITE_NAME = "Survey Doge"
+BAR_GRAPH_WIDTH = 400
