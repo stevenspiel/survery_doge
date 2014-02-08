@@ -50,7 +50,7 @@ $(document).ready(function () {
 
 
   // Survey creation functions
-  var completeSurvey = {};
+  var completeSurvey = {title: "doge magic"};
 
   var addDiv = $('#new-question-container');
   var i = $('#new-question-container p').length + 1;
@@ -63,9 +63,11 @@ $(document).ready(function () {
     return false;
   });
 
-  // $("#submit").click(function(e) {
-  //   e.preventDefault();
-  //   $.post("/new/survey", , "json");
-  // })
+  // Submit full survey as json to server
+  $("#submit").click(function(e) {
+    e.preventDefault();
+    $.post("/survey/new", completeSurvey, "json");
+  });
+
 
 });
