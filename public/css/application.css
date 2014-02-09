@@ -1,10 +1,13 @@
+#wrapper {
+  min-width: 600px;
+}
+
 .container {
   min-height:100%;
   margin: 20px auto;
   width: 800px;
   padding: 0px 20px 20px 20px;
   /*border: 1px dotted black;*/
-
 }
 h1 {
   font-size: 32pt;
@@ -40,7 +43,6 @@ body {
   width: 70%;
   height: 100%;
   min-height: 600px;
-  min-width: 800px;
   margin: 80px auto 0 auto;
   top: 50px;
   z-index: 50;
@@ -49,8 +51,9 @@ body {
 .home-container {
   background-image: url("/doge_bg.png");
   background-repeat: no-repeat;
-  background-size: 100% auto;
-  height: 90%;
+  background-size: cover;
+  /*height: 90%;*/
+  min-height: 600px;
   left: 0;
   position: absolute;
   right: 0;
@@ -61,7 +64,7 @@ body {
 
 .v-center-me {
   /*much hack*/
-  width: 80%;
+  width: 600px;
   height: 40%;
   overflow: auto;
   margin: auto;
@@ -74,7 +77,7 @@ body {
   font-weight: 100;
   position: relative;
   text-align: center;
-  top: 50px;
+  /*top: 50px;*/
   z-index: 100;
 }
 
