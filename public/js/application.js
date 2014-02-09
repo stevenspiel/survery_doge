@@ -79,9 +79,9 @@ $(document).on('click','#next',function(){
   console.log(questionsArray);
   completeSurvey[q_name] = questionsArray;
   console.log(completeSurvey);
-  window.newSurveyHTML = $("#question-and-buttons").html();
+  window.newSurveyHTML = $("#new-question-container").html();
   var iQ = parseInt($("input[tag='question']").attr('name').replace('question',''));
-  $("#question-and-buttons").html(window.newSurveyHTML);
+  $("#new-question-container").html(window.newSurveyHTML);
   $("input[tag='question']").attr('placeholder',function(){
     iQ ++
     console.log(iQ);
