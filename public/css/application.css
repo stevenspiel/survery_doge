@@ -4,8 +4,8 @@
   width: 800px;
   padding: 0px 20px 20px 20px;
   /*border: 1px dotted black;*/
-}
 
+}
 h1 {
   font-size: 32pt;
   font-family: 'Roboto', sans-serif;
@@ -302,7 +302,16 @@ input[type="radio"] {
   float: left;
 }
 
-#next-question{
+input[type="text"] {
+  width: 450px;
+}
+
+#title-border {
+  border-bottom: 1px solid gray;
+  margin-left: 50px;
+  margin-top: 20px;
+  margin-bottom: 30px;
+  width: 355px;
 }
 
 .survey-name {
