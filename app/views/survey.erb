@@ -1,10 +1,12 @@
 <h2 id="survey-title"><%=@survey.name%></h2>
-<%if current_user.email == @survey.user.email%>
-  <div id='share-url'>
-    <h3>Your Survey: <%=@survey.name%></h3>
-    <a href="/survey/<%=@survey.id%>"><%=request.base_url%>/survey/<%=@survey.id%></a>
-  </div>
-<%end%>
+<% if current_user %>
+  <%if current_user.email == @survey.user.email%>
+    <div id='share-url'>
+      <h3>Your Survey: <%=@survey.name%></h3>
+      <a href="/survey/<%=@survey.id%>"><%=request.base_url%>/survey/<%=@survey.id%></a>
+    </div>
+  <% end %>
+<% end %>
 <div id="doge-container">
   <div class="doge-carousel">
     <div class="doge-frames">
