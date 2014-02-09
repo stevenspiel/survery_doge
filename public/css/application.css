@@ -302,11 +302,19 @@ input[type="radio"] {
   float: left;
 }
 
+#question-and-buttons {
+  width: 355px;
+  margin-left: auto;
+  margin-right:auto;
+  /*text-align: center;*/
+}
+
 input[type="text"] {
   width: 450px;
 }
 
 #title-border {
+
   border-bottom: 1px solid gray;
   margin-left: 50px;
   margin-top: 20px;
