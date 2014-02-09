@@ -26,9 +26,10 @@ $(document).ready(function () {
           type: "POST",
           url: "/survey",
           data: window.Answers,
-          success: function(){
-            console.log(window.Answers)
-            // window.location.href = "/thanks"
+          success: function(response){
+            // console.log(response.survey_id);
+            // console.log(window.Answers);
+            window.location.href = "/thanks/" + response.survey_id;
           },
           dataType: "json"
         });

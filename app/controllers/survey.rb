@@ -45,14 +45,15 @@ post '/survey' do
     # increment vote count on each answer based on ques. number coming in
     Answer.find(id.to_i).increment!(:vote_count)
   end
+  {survey_id: Answer.find(params[:answers].first).question.survey_id}.to_json
 end
 
 get '/thanks/:id' do
   # Pass survey to view, so I can display survey title.
   # There's probably a better way to do this
-  puts "------ param id -------"
-  puts params[:id]
-  p params[:id]
+  # puts "------ param id -------"
+  # puts params[:id]
+  # p params[:id]
   @survey = Survey.find(params[:id])
   erb :thanks
 end
