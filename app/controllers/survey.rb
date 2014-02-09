@@ -47,6 +47,12 @@ post '/survey' do
   end
 end
 
-get '/thanks' do
+get '/thanks/:id' do
+  # Pass survey to view, so I can display survey title.
+  # There's probably a better way to do this
+  puts "------ param id -------"
+  puts params[:id]
+  p params[:id]
+  @survey = Survey.find(params[:id])
   erb :thanks
 end

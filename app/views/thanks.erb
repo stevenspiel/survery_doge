@@ -1,6 +1,12 @@
 <div id="thanks">
-	<h1>Thank you for your time.<h1>
-		<h2>H2</h2>
-		<h3>H3</h3>
-		<p>stuff</p>
+		<h2 id="survey-title">Much thank.</h2>
+		<h3>Thank you for taking the "<%=@survey.name%>" survey.</h3>
+		<p><%= @survey.user.name %>, the owner of the survey, would like to thank you
+			for your time.</p>
+			<p>As a token of appreciation, please accept the following
+			from <%= @survey.user.name %>.
+		</p>
+
+		<p>- - - coupon / freebie here - - - </p>
+		<button type="button">Return to Survey List</button>
 </div>

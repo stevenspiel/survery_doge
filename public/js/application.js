@@ -27,7 +27,8 @@ $(document).ready(function () {
           url: "/survey",
           data: window.Answers,
           success: function(){
-            window.location.href = "/thanks"
+            console.log(window.Answers)
+            // window.location.href = "/thanks"
           },
           dataType: "json"
         });
