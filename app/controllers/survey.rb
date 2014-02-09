@@ -13,7 +13,6 @@ post '/survey/new' do
   # get stuff from front end
   # as JSON
   survey = JSON.parse(request.body.read)
-  binding.pry
   new_survey = Survey.new
   new_survey.user_id = session[:user_id]
   survey.each do |key, value|
