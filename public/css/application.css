@@ -348,4 +348,12 @@ input[type="text"] {
   background-color: #008080;
 }
 
+#doge-rotator {
 
+}
+
+#doge-rotator img {
+  text-align: center;
+  width:64px;
+  height:64px;
+}
