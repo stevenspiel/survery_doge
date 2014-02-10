@@ -365,3 +365,11 @@ input[type="text"] {
 .submit-button {
   margin-top: 20px;
 }
+
+.stats-img {
+  vertical-align: top;
+}
+
+.stats-img > img {
+  height: 25px;
+}
