@@ -14,7 +14,6 @@ $(document).ready(function () {
   }
 
   $(".answer").click(function(){
-    // console.log("MUCH CLICKS");
     $("#next-question").removeAttr("disabled");
     // Line below changed to "+ 800" so that final frame could be a submission message/animation
     if (parseInt($(".doge-frames").css("left").replace("px", "")) === ($(".doge-item").length * -400 + 800)) {
@@ -34,8 +33,6 @@ $(document).ready(function () {
   });
 
   $("#next-question").click(function(){
-    console.log("MANY NEXT");
-    // window.Answers.
     window.Answers.answers.push($("input[type=radio]:checked").last().attr("value"));
     $(".doge-frames").css("left", "-=" + 400);
     $("#next-question").attr("disabled", true);
@@ -44,59 +41,115 @@ $(document).ready(function () {
   $(".doge-frames").css("width", ($(".doge-item").length * 100) + "%");
 
   $(".doge-item").css("width", (100 / $(".doge-item").length) + "%");
-});
 
+  $('#submit').click(function(){
 
+  });
 
 // Survey creation functions
 
-var completeSurvey = {};
+  var iO = 1;
+  var iQ = 1;
+  var dogeFrame =
+          "<div class='doge-item' id='doge-item-1'> \
+            <input type='text' class='new-question' placeholder='Question "+iQ+"' tag='question' name='question"+iQ+"' id='question"+iQ+"'><br> \
+            <div id='options-for-question-"+iQ+"'> \
+              <p><input type='text' class='new-answer' placeholder='Option "+iO+"' name='option"+iO+"'></p> \
+              <p><input type='text' class='new-answer' placeholder='Option "+ (iO + 1) +"' name='option"+ (iO + 1) +"'></p> \
+            </div> \
+            <a href='#' id='new-option-for-question-"+iQ+"' class='next-option'><img src='/add.png' alt='add'></a><br> \
+          </div>";
 
-var questionsArray = [];
+  $("#new-survey").html(dogeFrame);
 
-$(document).on('click','#new-option',function(){
-  var iO = $('#new-question-container p').length + 1;
-  $('<p><input type="text" class="new-answer" name="answer'+iO+'" value="" placeholder="Option '+iO+'" /><a href="#" class="remove" id="remove'+iO+'"><img class="minus" alt="remove" src="/remove.png"></a> </p>').appendTo($('#new-question-container'));
+});
+
+// End document.ready
+
+var currentQuestion = function(){
+  var leftIndent = parseInt($(".doge-frames").css('left').replace("px",""));
+  var carouselWidth = $(".doge-carousel").width()
+  return (((leftIndent * -1) / carouselWidth) + 1);
+};
+
+var numberOfQuestions = function(){
+  return ($("#new-survey .doge-item").length + 1);
+};
+
+//Add an option
+$(document).on('click','a[id^="new-option-for-question"]',function(e){
+  var iO = $('#doge-item-'+currentQuestion()+' p').length + 1;
+  $('<p><input type="text" class="new-answer" name="answer'+iO+'" value="" placeholder="Option '+iO+'" /><a href="#" class="remove" id="remove'+iO+'"><img class="minus" alt="remove" src="/remove.png"></a> </p>').appendTo($("#options-for-question-"+currentQuestion()));
   iO++;
+  $(".remove").click(function(e){
+    $(e.currentTarget).parent().remove();
+  });
   return false;
 });
 
-$(document).on('click','#question-and-buttons p .remove',function(e){
-  console.log(e);
-  $(e.currentTarget).parent().remove();
-});
-
+//Add Question
 $(document).on('click','#next',function(){
-  var q_name = $(".new-question ").val();
-  console.log("Length of new answers is" + $(".new-answer").length);
-  for (var i = 0; i < $(".new-answer").length; i++) {;
-    questionsArray[i] = $($(".new-answer")[i]).val();
+  $("#previous").removeAttr('disabled');
+  $(".doge-frames").css("left", "-=" + $(".doge-carousel").width());
+  var iO = $('.doge-item-'+currentQuestion()+' p').length + 1;
+  if(currentQuestion() === numberOfQuestions()) {
+    var dogeFrame =
+      "<div class='doge-item' id='doge-item-"+currentQuestion()+"'> \
+        <input type='text' class='new-question' placeholder='Question "+currentQuestion()+"' tag='question' name='question"+currentQuestion()+"' id='question"+currentQuestion()+"'><br> \
+        <div id='options-for-question-"+currentQuestion()+"'> \
+          <p><input type='text' class='new-answer' placeholder='Option "+iO+"' name='"+ currentQuestion() + '-' + iO +"'></p> \
+          <p><input type='text' class='new-answer' placeholder='Option "+ (iO + 1) +"' name='"+ currentQuestion() + '-' + iO +"'></p> \
+        </div> \
+        <a href='#' id='new-option-for-question-"+currentQuestion()+"' class='next-option'><img src='/add.png' alt='add'></a><br> \
+      </div>";
+    $(dogeFrame).appendTo($("#new-survey"));
   };
-  completeSurvey[q_name] = questionsArray;
-  window.newSurveyHTML = $("#new-question-container").html();
-  var iQ = parseInt($("input[tag='question']").attr('name').replace('question',''));
-  $("#new-question-container").html(window.newSurveyHTML);
-  $("input[tag='question']").attr('placeholder',function(){
-    iQ ++
-    console.log(iQ);
-    return 'Question ' + iQ;
-  });
-  $("input[tag='question']").attr('name',('question'+iQ));
+  $(".doge-frames").css('width', (($(".doge-item").length + 1) * 100) + "%");
+  $(".doge-item").css("width", (100 / ($(".doge-item").length + 1)) + "%");
+  console.log(currentQuestion());
 });
 
+//Go Back to previous question
+$(document).on('click','#previous',function(){
+  $(".doge-frames").css('width', (($(".doge-item").length + 1) * 100) + "%");
+  $(".doge-item").css("width", (100 / ($(".doge-item").length + 1)) + "%");
+  $(".doge-frames").css("left", "+=" + $(".doge-carousel").width());
+  if(currentQuestion() === 1){
+    $("#previous").attr('disabled','disabled');
+  }
+  console.log(currentQuestion());
+});
+
+//Form submission
 $(document).on("click", "#submit", function(e) {
   e.preventDefault();
+
+  var completeSurvey = {};
+
   completeSurvey.title = $("#title").val();
+
+  console.log("number of questions: "+ numberOfQuestions());
+
+  for(var i=1; i<numberOfQuestions(); i++){
+    var questionsArray = [];
+
+    $('#options-for-question-'+i+' input').each( function( index ){
+      questionsArray.push($(this).val() );
+    });
+    var question = $("#question"+i).val()
+    var result = completeSurvey[question] = questionsArray;
+    console.log(result);
+  }
+
   $.ajax({
     url: "/survey/new",
     type: 'post',
     data: JSON.stringify(completeSurvey),
     success: function(response){
-      window.location.href = "/user/" + response.user_id;
+      console.log(response);
+      // window.location.href = "/user/" + response.user_id;
     },
     contentType: 'application/json',
     dataType: 'json'
   });
 });
-
-

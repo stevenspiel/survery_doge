@@ -2,28 +2,29 @@
   <h2><%=@username%></h2>
 <h3 id='surveys'>Surveys</h3>
 <div class="survey-info">
-<table>
-  <% @surveys.each do |survey| %>
-  <tr>
-    <td>
-      <div class='survey-name'>
-        <%= survey.name %>
-      </div>
-    </td>
-    <td>
-      <div class='survey-link'>
-      <a href="/survey/<%= survey.id %>"><%= "#{request.base_url}/survey/#{survey.id}" %></a>
-    </td>
-    <td>
-      <div class='survey-stats'>
+  <table>
+    <% @surveys.each do |survey| %>
+    <tr>
+      <td>
+        <div class='survey-name'>
+          <%= survey.name %>
+        </div>
+      </td>
+      <td>
         <div class='survey-link'>
-    <a href="/survey/stats/<%= survey.id %>"><i class="fa fa-bar-chart-o"></i></a>
-      </div>
-      <i class="fa fa-pencil"></i>
-      <i class="fa fa-trash-o"></i>
-    <td>
-  </tr>
-  <% end %>
-</table>
+        <a href="/survey/<%= survey.id %>"><%= "#{request.base_url}/survey/#{survey.id}" %></a>
+      </td>
+      <td>
+        <div class='survey-stats'>
+          <div class='survey-link'>
+      <a href="/survey/stats/<%= survey.id %>"><i class="fa fa-bar-chart-o"></i></a>
+        </div>
+        <i class="fa fa-pencil"></i>
+        <i class="fa fa-trash-o"></i>
+      <td>
+    </tr>
+    <% end %>
+  </table>
+
 
 </div>
