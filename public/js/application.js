@@ -1,5 +1,3 @@
-
-
 $(document).ready(function () {
 
   // send an HTTP DELETE request for the sign-out link
@@ -66,10 +64,12 @@ $(document).on('click','#new-option',function(){
   var iO = $('#new-question-container p').length + 1;
   $('<p><input type="text" class="new-answer" name="answer'+iO+'" value="" placeholder="Option '+iO+'" /><a href="#" class="remove" id="remove'+iO+'"><img class="minus" alt="remove" src="/remove.png"></a> </p>').appendTo($('#new-question-container'));
     iO++;
-    $(".remove").click(function(e){
-      $(e.currentTarget).parent().remove();
-    });
     return false;
+});
+
+$(document).on('click','#question-and-buttons p .remove',function(e){
+  console.log(e);
+  $(e.currentTarget).parent().remove();
 });
 
 $(document).on('click','#next',function(){
@@ -78,12 +78,10 @@ $(document).on('click','#next',function(){
   for (var i = 0; i < $(".new-answer").length; i++) {;
     questionsArray[i] = $($(".new-answer")[i]).val();
   };
-  console.log(questionsArray);
   completeSurvey[q_name] = questionsArray;
-  console.log(completeSurvey);
-  window.newSurveyHTML = $("#question-and-buttons").html();
+  window.newSurveyHTML = $("#new-question-container").html();
   var iQ = parseInt($("input[tag='question']").attr('name').replace('question',''));
-  $("#question-and-buttons").html(window.newSurveyHTML);
+  $("#new-question-container").html(window.newSurveyHTML);
   $("input[tag='question']").attr('placeholder',function(){
     iQ ++
     console.log(iQ);
@@ -95,7 +93,6 @@ $(document).on('click','#next',function(){
 $(document).on("click", "#submit", function(e) {
     e.preventDefault();
     completeSurvey.title = $("#title").val();
-    console.log(completeSurvey);
  $.ajax({url: "/survey/new", type: 'post', data: JSON.stringify(completeSurvey), contentType: 'application/json', dataType: 'json' });
   });
 
