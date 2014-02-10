@@ -6,7 +6,11 @@ get '/survey/:id' do
 end
 
 get '/new/survey' do
-  erb :new_survey
+  if session[:user_id]
+    erb :new_survey
+  else
+    redirect '/users/new'
+  end
 end
 
 post '/survey/new' do
