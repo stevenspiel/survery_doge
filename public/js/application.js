@@ -15,9 +15,9 @@ $(document).ready(function () {
 
   $(".answer").click(function(){
     // console.log("MUCH CLICKS");
-
     $("#next-question").removeAttr("disabled");
-    if (parseInt($(".doge-frames").css("left").replace("px", "")) === ($(".doge-item").length * -400 + 400)) {
+    // Line below changed to "+ 800" so that final frame could be a submission message/animation
+    if (parseInt($(".doge-frames").css("left").replace("px", "")) === ($(".doge-item").length * -400 + 800)) {
       $("#next-question").html("Submit");
       $("#next-question").click(function(){
         $.ajax({
