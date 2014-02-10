@@ -1,6 +1,12 @@
 GEM
   remote: http://rubygems.org/
   specs:
+    actionpack (4.0.2)
+      activesupport (= 4.0.2)
+      builder (~> 3.1.0)
+      erubis (~> 2.7.0)
+      rack (~> 1.5.2)
+      rack-test (~> 0.6.2)
     activemodel (4.0.2)
       activesupport (= 4.0.2)
       builder (~> 3.1.0)
@@ -26,13 +32,22 @@ GEM
       activesupport (>= 3.2.0)
       json (>= 1.7)
     coderay (1.1.0)
+    commonjs (0.2.7)
     daemons (1.1.9)
     diff-lcs (1.2.5)
+    erubis (2.7.0)
     eventmachine (1.0.3)
     faker (1.2.0)
       i18n (~> 0.5)
+    font-awesome-less (4.0.2)
+      less-rails (>= 2.4.2)
     i18n (0.6.9)
     json (1.8.1)
+    less (2.4.0)
+      commonjs (~> 0.2.7)
+    less-rails (2.4.2)
+      actionpack (>= 3.1)
+      less (~> 2.4.0)
     method_source (0.8.2)
     mini_magick (3.7.0)
       subexec (~> 0.2.1)
@@ -90,6 +105,7 @@ DEPENDENCIES
   bcrypt-ruby
   carrierwave
   faker
+  font-awesome-less
   mini_magick
   pg
   pry
