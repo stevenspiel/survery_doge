@@ -25,8 +25,6 @@ $(document).ready(function () {
           url: "/survey",
           data: window.Answers,
           success: function(response){
-            // console.log(response.survey_id);
-            // console.log(window.Answers);
             window.location.href = "/thanks/" + response.survey_id;
           },
           dataType: "json"
@@ -46,10 +44,6 @@ $(document).ready(function () {
   $(".doge-frames").css("width", ($(".doge-item").length * 100) + "%");
 
   $(".doge-item").css("width", (100 / $(".doge-item").length) + "%");
-
-
-
-
 });
 
 
@@ -63,8 +57,8 @@ var questionsArray = [];
 $(document).on('click','#new-option',function(){
   var iO = $('#new-question-container p').length + 1;
   $('<p><input type="text" class="new-answer" name="answer'+iO+'" value="" placeholder="Option '+iO+'" /><a href="#" class="remove" id="remove'+iO+'"><img class="minus" alt="remove" src="/remove.png"></a> </p>').appendTo($('#new-question-container'));
-    iO++;
-    return false;
+  iO++;
+  return false;
 });
 
 $(document).on('click','#question-and-buttons p .remove',function(e){
@@ -91,9 +85,18 @@ $(document).on('click','#next',function(){
 });
 
 $(document).on("click", "#submit", function(e) {
-    e.preventDefault();
-    completeSurvey.title = $("#title").val();
- $.ajax({url: "/survey/new", type: 'post', data: JSON.stringify(completeSurvey), contentType: 'application/json', dataType: 'json' });
+  e.preventDefault();
+  completeSurvey.title = $("#title").val();
+  $.ajax({
+    url: "/survey/new",
+    type: 'post',
+    data: JSON.stringify(completeSurvey),
+    success: function(response){
+      window.location.href = "/user/" + response.user_id;
+    },
+    contentType: 'application/json',
+    dataType: 'json'
   });
+});
 
 
