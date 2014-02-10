@@ -30,6 +30,7 @@ post '/survey/new' do
   end
   # store into database
   new_survey.save!
+  {user_id: session[:user_id]}.to_json
 end
 
 get '/survey/stats/:id' do
