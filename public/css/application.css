@@ -115,11 +115,13 @@ body {
   display: inline-block;
   width: 30%;
   text-align: right;
+  margin-top: 0px;
 }
 
 .nav li {
   margin-right: 25px;
   display: inline;
+  line-height: 50px;
 }
 
 .nav li a {
@@ -229,7 +231,7 @@ button {
   border-radius: 5px;
   border: 0px solid darkgray;
   opacity: 1;
-  padding: 10px 20px;
+  padding: 10px 18px;
 }
 
 /*button hover states*/
@@ -313,7 +315,11 @@ input[type="radio"] {
 }
 
 input[type="text"] {
-  width: 450px;
+  width: 340px;
+}
+
+.new-answer{
+  width: 325px !important;
 }
 
 #title-border {
@@ -340,9 +346,9 @@ input[type="text"] {
   width: 1em;
 }
 
-.next-option {
-/*  background-color: #000080;
-*/}
+#new-option:hover {
+  background-image: 'add-hover.png';
+}
 
 .next-question {
   background-color: #008080;
@@ -364,4 +370,19 @@ tr {
 
 td {
   padding: 5px;
+}
+.submit-button {
+  margin-top: 20px;
+}
+
+.stats-img {
+  vertical-align: top;
+}
+
+.stats-img > img {
+  height: 25px;
+}
+
+#header-new-survey {
+
 }

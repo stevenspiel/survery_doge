@@ -1,4 +1,6 @@
 <h2>Current results for "<%=@survey.name%>"</h2>
+<% times_taken = @survey.questions.first.answers.map{|x|x.vote_count}.reduce(:+) %>
+<h5>Number of times taken: <%= times_taken %></h5>
 <%@survey.questions.each do |question|%>
   <h3><%=question.content%></h3>
   <%answers = question.answers.sort!{|x,y| x.order <=> y.order}%>
@@ -6,7 +8,8 @@
   <%answers.each do |answer|%>
     <div class='question-data'>
       <%=answer.order%>. <%=answer.content%><br>
-      <% percent = ((100 * answer.vote_count) / 51.0).round(1) %>
+      <% if times_taken == 0; percent = 0; else %>
+      <% percent = ((100 * answer.vote_count) / times_taken).round(1); end %>
       <div class="adjustable question<%= answer.order %>" id='<%="#{question.id }-#{answer.order}"%>' style="width:<%= (percent / 100) * BAR_GRAPH_WIDTH %>px"><%= percent %>%</div>
     </div>
   <%end%>

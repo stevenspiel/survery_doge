@@ -22,6 +22,9 @@
       </div>
 
       <ul>
+        <% unless request.path_info == '/'  %>
+          <li><button onclick="document.location.href = '/new/survey'" id="header-new-survey">New Survey</button></li>
+        <% end %>
         <% if current_user %>
           <li><a href="/user/<%=current_user.id%>" id="user">My Surveys</a></li>
           <li><a id="sign-out" href="/sessions/<%= current_user.id %>">Sign Out</a></li>
