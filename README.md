@@ -6,6 +6,8 @@ This is our Survey Monkey clone, totally doge-ified. Users can create multiple-c
 
 ### How to Run
 
+Heroku deployment demo can be found at http://surveydoge.herokuapp.com/
+
 Requirements: working postgres installed.
 
 
